@@ -1,0 +1,168 @@
+/* General Reset */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  margin: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  
+  position: relative;
+}
+
+/* Logo Section */
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.logotext {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.logotext span {
+  color: #ff5c5c;
+}
+
+.menuButton {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  border: none;
+  cursor: pointer;
+  background: none;
+  z-index: 1001;
+}
+
+.menuButton:hover {
+  color: #007bff;
+}
+
+/* Nav Styles */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  
+  
+}
+
+.navList {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.navItem {
+  display: flex;
+}
+
+.navLink {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  /* transition: color 0.3s ease, border-bottom 0.3s ease; */
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: #ff5c5c;
+}
+
+.navLink::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #ff5c5c;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.navLink:hover::after,
+.navLink:focus::after {
+  width: 100%;
+}
+
+/* Active Link */
+.active {
+  color: #ff5c5c !important;
+}
+
+.active::after {
+  width: 100% !important;
+}
+
+.uploadButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.uploadButton:hover {
+  background-color: #3182ce;
+}
+
+.uploadIcon {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* Responsive (Mobile) */
+@media screen and (max-width: 768px) {
+  .menuButton {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    
+    /* padding: 20px; */
+  }
+
+  .navList {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .active {
+    max-height: 300px;
+  }
+}

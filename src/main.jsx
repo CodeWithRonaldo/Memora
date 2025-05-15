@@ -3,8 +3,10 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter } from 'react-router'
-import Home from './components/Home/Home.jsx'
+import Home from './pages/Home/Home.jsx'
 import { RouterProvider } from 'react-router-dom'
+import Gallery from './pages/gallery/Gallery.jsx'
+import Journal from './pages/journal/Journal.jsx'
 
 
 const router = createBrowserRouter([
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
         index: true,
         element:<Home/>
       },
+      {
+        path: 'gallery',
+        element: <Gallery/>
+      },
+      {
+        path: 'journal',
+        element: <Journal/>
+      }
 
     ]
 
