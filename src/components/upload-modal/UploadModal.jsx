@@ -79,20 +79,22 @@ const UploadModal = ({ onClose, onUpload }) => {
     
     setUploading(true);
     
-    // Simulate upload delay
+    
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     const uploadedPhotos = selectedFiles.map(file => ({
-      url: file.preview, // In a real app, this would be the uploaded file URL
+      url: file.preview, 
       title: file.title,
       description: file.description,
       tags: file.tags
+
     }));
+    
     
     onUpload(uploadedPhotos);
     
-    // Clean up preview URLs
-    selectedFiles.forEach(file => URL.revokeObjectURL(file.preview));
+  
+    
     
     setUploading(false);
   };
