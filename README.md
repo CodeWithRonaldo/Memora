@@ -2,6 +2,29 @@
 
 A React-based photo gallery web application to upload, view, filter, and sort your  memories. The app allows users to upload photos, add titles, descriptions, and tags, and browse them in different view modes with filtering and sorting options.
 
+## ❓ Why Memora?
+
+In a world overflowing with photos, it's easy to lose track of the moments that matter. From travel pictures buried in phone storage to family events mixed up in cloud folders, managing memories has become frustrating.
+
+### 🧩 The Problem
+
+- Disorganized photo folders across devices and platforms  
+- Lack of context — no titles, tags, or descriptions to recall the story  
+- Hard to find specific memories  
+- No personalized or emotional connection to how photos are presented  
+
+### ✅ The Solution
+
+Memora offers a beautiful and intuitive space to:
+
+- **Upload** your moments  
+- **Describe** them with metadata  
+- **Sort & Filter** memories meaningfully  
+- **View** them in aesthetic layouts  
+
+No more scrolling endlessly through unnamed files. Just memories that make sense.
+
+
 ## Features
 
 - Display a gallery of photos with grid and masonry view modes.
@@ -45,15 +68,34 @@ A React-based photo gallery web application to upload, view, filter, and sort yo
 
 4. Open your browser and navigate to `http://localhost:3000` (or the port shown in the terminal).
 
-## Usage
+## 🧭 Usage Guide
 
-- Navigate to the Gallery page to view photos.
-- Click "Upload Photos" to open the upload modal.
-- Drag and drop images or click to select files.
-- Add titles, descriptions, and tags to your photos.
-- Click "Upload" to add photos to the gallery.
-- Use the filter bar to search, filter by tags, and sort photos.
-- Click on a photo card to view it in detail and navigate between photos.
+1. **Navigate to the Gallery page**  
+   Go to the gallery section to see all uploaded photos displayed in a clean grid or masonry layout.
+
+2. **Click "Upload Photos"**  
+   Opens a modal allowing you to upload new images.
+
+3. **Choose Photos**  
+   Drag and drop your images or click to browse and select files.
+
+4. **Add Details**  
+   For each photo, you can enter:
+   - **Title**: Name your memory.
+   - **Description**: Add a short story or context.
+   - **Tags**: Add keywords to make searching easier.
+
+5. **Upload**  
+   Once you've added the metadata, click "Upload" to add the photo to your gallery.
+
+6. **Browse and Filter**  
+   - Use the filter bar to search photos by keywords.
+   - Filter by tags or date ranges.
+   - Sort photos by title, date, or number of tags.
+
+7. **View in Detail**  
+   Click on any photo to open it in a modal and navigate through your memories in full view.
+
 
 ## Development
 
@@ -62,6 +104,17 @@ A React-based photo gallery web application to upload, view, filter, and sort yo
 - Pages are under `src/pages/`.
 - State management is done using React hooks.
 
+## 🛠️ Tech Stack
+
+| Technology     | Description                                 |
+|----------------|---------------------------------------------|
+| **React**      | Frontend library for building UI components |
+| **CSS Modules**| Scoped styling for individual components    |
+| **Vite**       | Fast build tool and development server      |
+| **JavaScript** | Core language used for building the app     |
+| **HTML5**      | Semantic structure for the UI               |
+| **ESLint**     | Linting tool to maintain code quality       |
+| **React Hooks**| State and side-effect management            |
 
 
 
