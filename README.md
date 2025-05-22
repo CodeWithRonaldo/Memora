@@ -123,6 +123,8 @@ Check out the demo video:
 
 [🎬 Watch Demo](https://drive.google.com/file/d/1hVpVbC6pDk6l6xhQhgPO5zbVeF4cwzbb/view?usp=sharing)
 
+Discord : RONALDO#5916
+
 ## License
 
 This project is open source and available under the MIT License.
