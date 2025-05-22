@@ -21,7 +21,9 @@ const router = createBrowserRouter([
       },
       {
         path: 'gallery',
-        element: <Gallery/>
+        element: <Gallery/>,
+       
+
       },
       {
         path: 'journal',

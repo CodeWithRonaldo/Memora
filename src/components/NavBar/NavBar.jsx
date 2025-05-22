@@ -2,9 +2,8 @@ import React, { useState } from "react";
 
 // import { useLocation } from "react-router";
 import styles from "./NavBar.module.css";
-import {NavLink, Link } from "react-router-dom";
-import { FaBars, FaTimes } from 'react-icons/fa';
-
+import { NavLink, Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const NavBar = () => {
   // const location = useLocation();
@@ -25,35 +24,50 @@ const NavBar = () => {
       </div>
 
       <button className={styles.menuButton} onClick={togglemenu}>
-  {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-</button>
+        {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+      </button>
 
       <nav className={`${styles.nav} ${isMenuOpen ? styles.active : ""}`}>
         <ul className={styles.navList}>
           <li className={styles.navItem}>
-            <NavLink to="/" className={({isActive}) => `${styles.navLink} ${isActive ? styles.active : ""}`} end>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `${styles.navLink} ${isActive ? styles.active : ""}`
+              }
+              end
+            >
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/gallery" className={({isActive})=> `${styles.navLink} ${isActive? styles.active: ""}`} >
+            <NavLink
+              to="/gallery"
+              className={({ isActive }) =>
+                `${styles.navLink} ${isActive ? styles.active : ""}`
+              }
+            >
               Gallery
             </NavLink>
           </li>
           <li>
             <NavLink
               to="journal"
-             className={({isActive})=> `${styles.navLink} ${isActive? styles.active: ""}`}
+              className={({ isActive }) =>
+                `${styles.navLink} ${isActive ? styles.active : ""}`
+              }
             >
               Journal
             </NavLink>
           </li>
-        <div className={styles.navActions}>
-          <button className={styles.uploadButton}>
-            <span>Upload</span>
-            <span className={styles.uploadIcon}>+</span>
-          </button>
-        </div>
+          <div className={styles.navActions}>
+            <NavLink to="/gallery" className={styles.uploadLink}>
+              <button className={styles.uploadButton}>
+                <span>Upload</span>
+                <span className={styles.uploadIcon}>+</span>
+              </button>
+            </NavLink>
+          </div>
         </ul>
       </nav>
     </header>
