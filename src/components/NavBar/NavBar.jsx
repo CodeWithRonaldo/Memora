@@ -52,7 +52,7 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="journal"
+              to="/journal"
               className={({ isActive }) =>
                 `${styles.navLink} ${isActive ? styles.active : ""}`
               }
