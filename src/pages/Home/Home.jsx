@@ -24,7 +24,7 @@ const Home = () => {
     },
     {
       id: 3,
-      title: 'AI Compilations',
+      title: 'AI Compilation ( coming soon)',
       description: 'Let our AI create beautiful compilations based on your memories.',
       icon: '✨',
       to: '/ai-compilation'
