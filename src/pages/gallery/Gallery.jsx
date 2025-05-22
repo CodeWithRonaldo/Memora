@@ -3,7 +3,7 @@ import styles from './Gallery.module.css';
 import PhotoCard from '../../components/photocard/PhotoCard';
 import FilterBar from '../../components/filter-bar/FilterBar';
 import PhotoModal from '../../components/photo-modal/PhotoModal';
-// import UploadModal from '../components/gallery/UploadModal';
+import UploadModal from '../../components/upload-modal/UploadModal';
 import icecream from '../../assets/icecream.jpeg'
 import beachday from '../../assets/beachday.jpg'
 import camping from '../../assets/camping.jpeg'
