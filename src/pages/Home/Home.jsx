@@ -12,19 +12,22 @@ const Home = () => {
       id: 1,
       title: 'Organize Memories',
       description: 'Sort and organize your photos with custom tags and collections.',
-      icon: '📁'
+      icon: '📁',
+      to: '/gallery'
     },
     {
       id: 2,
       title: 'Journal Entries',
       description: 'Attach stories and notes to your photos to preserve every detail.',
-      icon: '📝'
+      icon: '📝',
+      to: '/journal'
     },
     {
       id: 3,
       title: 'AI Compilations',
       description: 'Let our AI create beautiful compilations based on your memories.',
-      icon: '✨'
+      icon: '✨',
+      to: '/ai-compilation'
     }
   ];
 
@@ -50,6 +53,7 @@ const Home = () => {
               title={feature.title}
               description={feature.description}
               icon={feature.icon}
+              to={feature.to}
             />
           ))}
         </div>
