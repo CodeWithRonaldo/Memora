@@ -31,15 +31,28 @@ const UploadModal = ({ onClose, onUpload }) => {
     handleFiles(files);
   };
 
-  const handleFiles = (files) => {
+  // convert file to base64 string
+  const fileToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
+  };
+
+  const handleFiles = async (files) => {
     const imageFiles = files.filter(file => file.type.startsWith('image/'));
     
-    const newFiles = imageFiles.map(file => ({
-      file,
-      preview: URL.createObjectURL(file),
-      title: file.name.split('.')[0],
-      description: '',
-      tags: []
+    const newFiles = await Promise.all(imageFiles.map(async (file) => {
+      const base64 = await fileToBase64(file);
+      return {
+        file,
+        preview: base64,
+        title: file.name.split('.')[0],
+        description: '',
+        tags: []
+      };
     }));
     
     setSelectedFiles(prev => [...prev, ...newFiles]);
@@ -79,22 +92,16 @@ const UploadModal = ({ onClose, onUpload }) => {
     
     setUploading(true);
     
-    
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     const uploadedPhotos = selectedFiles.map(file => ({
-      url: file.preview, 
+      url: file.preview, // base64 string now
       title: file.title,
       description: file.description,
       tags: file.tags
-
     }));
     
-    
     onUpload(uploadedPhotos);
-    
-  
-    
     
     setUploading(false);
   };

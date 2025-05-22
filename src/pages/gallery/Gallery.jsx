@@ -13,75 +13,81 @@ import poolparty from '../../assets/poolparty.jpeg'
 import sunset from '../../assets/sunset.jpeg'
 import volley from '../../assets/volley.jpeg'
 
-
+const LOCAL_STORAGE_KEY = 'gallery_photos';
 
 const Gallery = () => {
-  const [photos, setPhotos] = useState([
-    { 
-      id: 1, 
-      url: beachday, 
-      title: 'Beach Day', 
-      date: '2023-07-15', 
-      tags: ['beach', 'ocean', 'family'],
-      description: 'A perfect day at the beach with the family. The weather was amazing!'
-    },
-    { 
-      id: 2, 
-      url: hike, 
-      title: 'Mountain Hike', 
-      date: '2023-08-03', 
-      tags: ['mountain', 'hiking', 'nature'],
-      description: 'Challenging hike but the view at the top was worth every step.'
-    },
-    { 
-      id: 3, 
-      url: sunset, 
-      title: 'Sunset Picnic', 
-      date: '2023-07-22', 
-      tags: ['sunset', 'picnic', 'friends'],
-      description: 'Beautiful sunset picnic with friends in the park.'
-    },
-    { 
-      id: 4, 
-      url: poolparty, 
-      title: 'Pool Party', 
-      date: '2023-08-10', 
-      tags: ['pool', 'party', 'friends'],
-      description: 'Epic pool party to celebrate summer vacation!'
-    },
-    { 
-      id: 5, 
-      url: camping, 
-      title: 'Camping Trip', 
-      date: '2023-07-29', 
-      tags: ['camping', 'nature', 'family'],
-      description: 'Three days of camping in the wilderness. So peaceful and refreshing.'
-    },
-    { 
-      id: 6, 
-      url: icecream, 
-      title: 'Ice Cream Date', 
-      date: '2023-08-15', 
-      tags: ['food', 'date', 'summer'],
-      description: 'Best ice cream in town on the hottest day of summer!'
-    },
-    { 
-      id: 7, 
-      url: firework, 
-      title: 'Fireworks Show', 
-      date: '2023-07-04', 
-      tags: ['fireworks', 'celebration', 'night'],
-      description: 'Fourth of July fireworks display was absolutely spectacular.'
-    },
-    { 
-      id: 8, 
-      url: volley, 
-      title: 'Beach Volleyball', 
-      date: '2023-08-20', 
-      tags: ['beach', 'sports', 'friends'],
-      description: 'Competitive beach volleyball tournament with friends.'
+  const [photos, setPhotos] = useState(() => {
+    const savedPhotos = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (savedPhotos) {
+      return JSON.parse(savedPhotos);
     }
-  ]);
+    return [
+      { 
+        id: 1, 
+        url: beachday, 
+        title: 'Beach Day', 
+        date: '2023-07-15', 
+        tags: ['beach', 'ocean', 'family'],
+        description: 'A perfect day at the beach with the family. The weather was amazing!'
+      },
+      { 
+        id: 2, 
+        url: hike, 
+        title: 'Mountain Hike', 
+        date: '2023-08-03', 
+        tags: ['mountain', 'hiking', 'nature'],
+        description: 'Challenging hike but the view at the top was worth every step.'
+      },
+      { 
+        id: 3, 
+        url: sunset, 
+        title: 'Sunset Picnic', 
+        date: '2023-07-22', 
+        tags: ['sunset', 'picnic', 'friends'],
+        description: 'Beautiful sunset picnic with friends in the park.'
+      },
+      { 
+        id: 4, 
+        url: poolparty, 
+        title: 'Pool Party', 
+        date: '2023-08-10', 
+        tags: ['pool', 'party', 'friends'],
+        description: 'Epic pool party to celebrate summer vacation!'
+      },
+      { 
+        id: 5, 
+        url: camping, 
+        title: 'Camping Trip', 
+        date: '2023-07-29', 
+        tags: ['camping', 'nature', 'family'],
+        description: 'Three days of camping in the wilderness. So peaceful and refreshing.'
+      },
+      { 
+        id: 6, 
+        url: icecream, 
+        title: 'Ice Cream Date', 
+        date: '2023-08-15', 
+        tags: ['food', 'date', 'summer'],
+        description: 'Best ice cream in town on the hottest day of summer!'
+      },
+      { 
+        id: 7, 
+        url: firework, 
+        title: 'Fireworks Show', 
+        date: '2023-07-04', 
+        tags: ['fireworks', 'celebration', 'night'],
+        description: 'Fourth of July fireworks display was absolutely spectacular.'
+      },
+      { 
+        id: 8, 
+        url: volley, 
+        title: 'Beach Volleyball', 
+        date: '2023-08-20', 
+        tags: ['beach', 'sports', 'friends'],
+        description: 'Competitive beach volleyball tournament with friends.'
+      }
+    ];
+  });
 
   const [filteredPhotos, setFilteredPhotos] = useState(photos);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
@@ -91,6 +97,10 @@ const Gallery = () => {
 
   useEffect(() => {
     setFilteredPhotos(photos);
+  }, [photos]);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(photos));
   }, [photos]);
 
   const handleFilter = (filters) => {
@@ -222,23 +232,6 @@ const Gallery = () => {
             />
           ))}
         </div>
-      )}
-
-      {selectedPhoto && (
-        <PhotoModal
-          photo={selectedPhoto}
-          onClose={handleCloseModal}
-          onNext={() => {
-            const currentIndex = filteredPhotos.findIndex(p => p.id === selectedPhoto.id);
-            const nextIndex = (currentIndex + 1) % filteredPhotos.length;
-            setSelectedPhoto(filteredPhotos[nextIndex]);
-          }}
-          onPrevious={() => {
-            const currentIndex = filteredPhotos.findIndex(p => p.id === selectedPhoto.id);
-            const prevIndex = currentIndex === 0 ? filteredPhotos.length - 1 : currentIndex - 1;
-            setSelectedPhoto(filteredPhotos[prevIndex]);
-          }}
-        />
       )}
 
       {showUploadModal && (
