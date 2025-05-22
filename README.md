@@ -117,7 +117,11 @@ No more scrolling endlessly through unnamed files. Just memories that make sense
 | **React Hooks**| State and side-effect management            |
 
 
+## 📹 Demo
 
+Check out the demo video:
+
+[🎬 Watch Demo](https://drive.google.com/file/d/1hVpVbC6pDk6l6xhQhgPO5zbVeF4cwzbb/view?usp=sharing)
 
 ## License
 
