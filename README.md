@@ -1,4 +1,4 @@
-#  Memories Gallery
+#  Memora
 
 A React-based photo gallery web application to upload, view, filter, and sort your  memories. The app allows users to upload photos, add titles, descriptions, and tags, and browse them in different view modes with filtering and sorting options.
 
@@ -61,7 +61,7 @@ A React-based photo gallery web application to upload, view, filter, and sort yo
 - Components are organized under `src/components/`.
 - Pages are under `src/pages/`.
 - State management is done using React hooks.
-- Image previews use `URL.createObjectURL` for local preview.
+
 
 
 
